@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+<GUILayout>
+    <Window Type="TaharezLook/FrameWindow" Name="backgroundWindow">
+        <!--<Property Name="UnifiedAreaRect" Value="{{0.0,0.0},{0.0,0.0},{1.0,0.0},{1.0,0.0}}" />-->
+        <Property Name="UnifiedMaxSize" Value="{{1.0,0.0},{1.0,0.0}}" />
+        <Property Name="UnifiedMinSize" Value="{{1.0,0.0},{1.0,0.0}}" />
+        <Property Name="TitlebarEnabled" Value="False" />
+        <Property Name="CloseButtonEnabled" Value="False" />
+        <Property Name="FrameEnabled" Value="False" />
+        
+		<Window Type="TaharezLook/FrameWindow" Name="consoleOutput">
+		    <Property Name="Text">Console Output</Property>
+		    <Property Name="CaptionColour" Value="FFAAAABB" />
+			<Property Name="UnifiedAreaRect" Value="{{0.005,0.0},{0.005,0.0},{0.5,0.0},{0.995,0.0}}" />
+			<Property Name="CloseButtonEnabled" Value = "False" />
+			<Window Type="TaharezLook/MultiLineEditbox" Name="consoleOutputFeed">
+		        <Property Name="UnifiedAreaRect" Value="{{0.0,0.0},{0.0,0.0},{1.0,0.0},{1.0,0.0}}" />
+		    	<Property Name="ReadOnly" Value="True" />
+		    	<Property Name="Text" Value="This is console output feed \n here goes output" />
+		    </Window>
+		</Window>
+		
+		<Window Type="TaharezLook/FrameWindow" Name="infoPanel">
+		    <Property Name="Text">Ship Status Panel</Property>
+		    <Property Name="CaptionColour" Value="FFAAAABB" />
+		    <Property Name="UnifiedAreaRect" Value="{{0.505,0.0},{0.005,0.0},{0.995,0.0},{0.5,0.0}}" />
+		    <Property Name="CloseButtonEnabled" Value = "False" />
+		   	<Window Type="TaharezLook/MultiLineEditbox" Name="panelOutputFeed">
+		        <Property Name="UnifiedAreaRect" Value="{{0.0,0.0},{0.0,0.0},{1.0,0.0},{1.0,0.0}}" />
+		    	<Property Name="ReadOnly" Value="True" />
+		    	<Property Name="Text" Value="This is ship info panel" />
+		    </Window>
+		</Window>
+		
+		<Window Type="TaharezLook/FrameWindow" Name="consoleInput">
+		    <Property Name="Text">Console Input</Property>
+		    <Property Name="CaptionColour" Value="FFAAAABB" />
+		    <Property Name="UnifiedAreaRect" Value="{{0.505,0.0},{0.510,0.0},{0.995,0.0},{0.995,0.0}}" />
+		    <Property Name="CloseButtonEnabled" Value = "False" />
+		    <Window Type="TaharezLook/MultiLineEditbox" Name="consoleInputField">
+		        <Property Name="UnifiedAreaRect" Value="{{0.0,0.0},{0.0,0.0},{1.0,0.0},{0.8,0.0}}" />
+		    </Window>
+		    <Window Type="TaharezLook/Button" Name="runBtn">
+		        <Property Name="Text">Run Code</Property>
+		       	<Property Name="UnifiedAreaRect" Value="{{0.5,0.0},{0.83,0.0},{0.98,0.0},{0.97,0.0}}" />
+		    </Window>
+		</Window>
+	</Window>
+</GUILayout>
