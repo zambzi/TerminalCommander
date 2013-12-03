@@ -16,8 +16,7 @@ OutputConsole::~OutputConsole() {
 }
 
 void OutputConsole::append(CEGUI::String text){
-	CEGUI::String newLine = "\n>";
-	field->appendText(newLine+text);
+	field->appendText(">"+text);
 }
 
 void OutputConsole::clear(){

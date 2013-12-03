@@ -13,7 +13,6 @@ TCApp::TCApp():
 	depth(32),
 	displaySurface(NULL),
 	isRunning(true){
-	testSurface = NULL;
 	interface=NULL;
 
 }
@@ -24,7 +23,6 @@ TCApp::TCApp(int _resolutionX, int _resolutionY, int _depth):
 				depth(_depth),
 				displaySurface(NULL),
 				isRunning(true){
-	testSurface = NULL;
 	interface=NULL;
 }
 
@@ -63,11 +61,6 @@ bool TCApp::init(){
 
 	setupGL();
 
-	if((testSurface = SurfaceManager::loadSurface("image.bmp"))==NULL){
-		std::cout<<"Error while loading image"<<std::endl;
-		return false;
-	}
-
 	CEGUI::OpenGLRenderer::bootstrapSystem();
 	interface = new ShipInterface();
 	SDL_EnableUNICODE(1);
@@ -92,7 +85,6 @@ void TCApp::update(){
 void TCApp::cleanup(){
 	delete interface;
 	SDL_FreeSurface(displaySurface);
-	SDL_FreeSurface(testSurface);
 	SDL_Quit();
 }
 

@@ -19,7 +19,6 @@ private:
 	int				depth;
 
 	SDL_Surface*	displaySurface;
-	SDL_Surface*	testSurface;
 
 	ShipInterface* interface;
 
@@ -40,6 +39,7 @@ public:
 	void event(SDL_Event* evt);
 	void mouseDown(SDL_Event* evt);
 	void mouseUp(SDL_Event* evt);
+	void keyDown(SDL_Event* evt);
 	CEGUI::uint convertKey(SDLKey key);
 
 	void setupGL();

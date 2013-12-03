@@ -11,7 +11,7 @@
 		<Window Type="TaharezLook/FrameWindow" Name="consoleOutput">
 		    <Property Name="Text">Console Output</Property>
 		    <Property Name="CaptionColour" Value="FFAAAABB" />
-			<Property Name="UnifiedAreaRect" Value="{{0.005,0.0},{0.005,0.0},{0.5,0.0},{0.995,0.0}}" />
+			<Property Name="UnifiedAreaRect" Value="{{0.055,0.0},{0.055,0.0},{0.45,0.0},{0.955,0.0}}" />
 			<Property Name="CloseButtonEnabled" Value = "False" />
 			<Window Type="TaharezLook/MultiLineEditbox" Name="consoleOutputFeed">
 		        <Property Name="UnifiedAreaRect" Value="{{0.0,0.0},{0.0,0.0},{1.0,0.0},{1.0,0.0}}" />
@@ -23,7 +23,7 @@
 		<Window Type="TaharezLook/FrameWindow" Name="infoPanel">
 		    <Property Name="Text">Ship Status Panel</Property>
 		    <Property Name="CaptionColour" Value="FFAAAABB" />
-		    <Property Name="UnifiedAreaRect" Value="{{0.505,0.0},{0.005,0.0},{0.995,0.0},{0.5,0.0}}" />
+		    <Property Name="UnifiedAreaRect" Value="{{0.505,0.0},{0.005,0.0},{0.955,0.0},{0.45,0.0}}" />
 		    <Property Name="CloseButtonEnabled" Value = "False" />
 		   	<Window Type="TaharezLook/MultiLineEditbox" Name="panelOutputFeed">
 		        <Property Name="UnifiedAreaRect" Value="{{0.0,0.0},{0.0,0.0},{1.0,0.0},{1.0,0.0}}" />
@@ -35,7 +35,7 @@
 		<Window Type="TaharezLook/FrameWindow" Name="consoleInput">
 		    <Property Name="Text">Console Input</Property>
 		    <Property Name="CaptionColour" Value="FFAAAABB" />
-		    <Property Name="UnifiedAreaRect" Value="{{0.505,0.0},{0.510,0.0},{0.995,0.0},{0.995,0.0}}" />
+		    <Property Name="UnifiedAreaRect" Value="{{0.505,0.0},{0.510,0.0},{0.955,0.0},{0.955,0.0}}" />
 		    <Property Name="CloseButtonEnabled" Value = "False" />
 		    <Window Type="TaharezLook/MultiLineEditbox" Name="consoleInputField">
 		        <Property Name="UnifiedAreaRect" Value="{{0.0,0.0},{0.0,0.0},{1.0,0.0},{0.8,0.0}}" />

@@ -26,6 +26,7 @@ void TCApp::event(SDL_Event* evt){
 			CEGUI::System::getSingleton().injectKeyDown(key);
 			if(evt->key.keysym.unicode !=0)
 				CEGUI::System::getSingleton().injectChar(evt->key.keysym.unicode);
+			keyDown(evt);
 			break;
 
 		case SDL_KEYUP:
@@ -33,6 +34,16 @@ void TCApp::event(SDL_Event* evt){
 			CEGUI::System::getSingleton().injectKeyUp(key);
 			break;
 
+	}
+}
+
+void TCApp::keyDown(SDL_Event* evt){
+	switch(evt->key.keysym.sym){
+		case SDLK_PAGEUP:				interface->inputField->historyUp(); break;
+		case SDLK_PAGEDOWN: 			interface->inputField->historyDown(); break;
+		case SDLK_RETURN:				if(evt->key.keysym.mod & KMOD_RSHIFT)
+											interface->inputField->processCode(); break;
+		default: break;
 	}
 }
 
