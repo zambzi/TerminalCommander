@@ -8,8 +8,9 @@
 #include "Bindings.h"
 #include <algorithm>
 
-Bindings::Bindings(OutputConsole* output) {
+Bindings::Bindings(OutputConsole* output, Ship* playerShip) {
 	this->output = output;
+	this->playerShip = playerShip;
 
 }
 
@@ -31,6 +32,12 @@ void Bindings::parseInput(CEGUI::String text){
 	CEGUI::String funct;
 	int lastWhitespace = 0;
 	for(unsigned int i = 0; i<text.length(); i++){
+
+		//TODO:multiple lines implementation
+		//if(text[i]=='\n'){
+		//	parseInput(text.substr(i+1,text.length()-i));
+		//	break;
+		//}
 
 		if(text[i]==' ' || text[i]=='\0' || i>=text.length()-1){
 
@@ -58,16 +65,25 @@ void Bindings::parseInput(CEGUI::String text){
 }
 
 
-void Bindings::echo(int argc, CEGUI::String* argv){
-	for(int i=0; i<argc; i++){
-		output->append(argv[i]);
+bool Bindings::isNumber(CEGUI::String str){
+	bool isNegative = false;
+	bool isFloat = false;
+	if(str.empty()) return false;
+	for(int i=0; i<str.length(); i++){
+		if(i==0 && str[i]=='-'){
+			isNegative = true;
+			continue;
+		}
+		if(!std::isdigit(str[i])){
+			if(str[i]!='.' || isFloat)
+				return false;
+			else
+				isFloat = true;
+		}
 	}
+	return true;
 }
 
-void Bindings::runBinding(CEGUI::String funct, int argc, CEGUI::String* argv){
-	if(funct=="echo") echo(argc, argv);
-	else{
-		output->append("Error: can't find program '"+funct+"'!");
-	}
+float Bindings::strToF(CEGUI::String str){
 
 }

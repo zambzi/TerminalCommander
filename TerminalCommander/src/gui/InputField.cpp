@@ -6,9 +6,10 @@
  */
 
 #include "InputField.h"
+#include "../ship/Ship.h"
 
 
-InputField::InputField(OutputConsole* output) {
+InputField::InputField(OutputConsole* output, Bindings* bindings) {
 	this->output = output;
 	CEGUI::WindowManager& mgr = CEGUI::WindowManager::getSingleton();
 	field = static_cast<CEGUI::MultiLineEditbox*>(mgr.getWindow("consoleInputField"));
@@ -16,7 +17,7 @@ InputField::InputField(OutputConsole* output) {
 	ifWindow = static_cast<CEGUI::Window*>(mgr.getWindow("backgroundWindow"));
 	currHistoryRecord = 0;
 
-	bindings = new Bindings(output);
+	this->bindings = bindings;
 
 	runBtn->subscribeEvent(CEGUI::PushButton::EventClicked,
 			CEGUI::Event::Subscriber(&InputField::runCode,this));

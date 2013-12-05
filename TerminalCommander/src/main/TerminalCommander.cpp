@@ -9,7 +9,8 @@
 #include "TCApp.h"
 
 int main() {
-	TCApp tcApp(1280,800,32);
+	static TCApp tcApp(1280,800,32);
 
 	return tcApp.run();
 }
+

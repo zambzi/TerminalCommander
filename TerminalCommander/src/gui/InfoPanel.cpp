@@ -6,13 +6,37 @@
  */
 
 #include "InfoPanel.h"
+#include "../utils/Dials.h"
+#include <strstream>
 
 InfoPanel::InfoPanel() {
-	// TODO Auto-generated constructor stub
-
+	CEGUI::WindowManager& mgr = CEGUI::WindowManager::getSingleton();
+	field = static_cast<CEGUI::MultiLineEditbox*>(mgr.getWindow("panelOutputFeed"));
 }
 
 InfoPanel::~InfoPanel() {
-	// TODO Auto-generated destructor stub
+
+}
+
+void InfoPanel::update(const Ship& ship){
+	std::string text;
+	std::ostringstream str;
+	str.precision(2);
+	str<<std::fixed;
+
+	str<<	"POS: X:"	<<	Dials::getLocation(ship).x	<<
+			"  Y:"		<<	Dials::getLocation(ship).y	<<
+			"  Z:"		<<	Dials::getLocation(ship).z	<<
+			"\nDIR: X:"	<<	Dials::getBearings(ship).x	<<
+			"  Y:"		<<	Dials::getBearings(ship).y	<<
+			"  Z:"		<<	Dials::getBearings(ship).z	<<
+			"\nV:"		<<	Dials::getVelocity(ship)	<<
+			"\nThrust:"	<<	Dials::getThrust(ship);
+
+
+	text = str.str();
+
+	field->setText("");
+	field->appendText(text);
 }
 

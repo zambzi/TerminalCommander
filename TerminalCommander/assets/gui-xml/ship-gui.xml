@@ -16,7 +16,6 @@
 			<Window Type="TaharezLook/MultiLineEditbox" Name="consoleOutputFeed">
 		        <Property Name="UnifiedAreaRect" Value="{{0.0,0.0},{0.0,0.0},{1.0,0.0},{1.0,0.0}}" />
 		    	<Property Name="ReadOnly" Value="True" />
-		    	<Property Name="Text" Value="This is console output feed \n here goes output" />
 		    </Window>
 		</Window>
 		

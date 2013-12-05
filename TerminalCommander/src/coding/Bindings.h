@@ -9,13 +9,15 @@
 #define BINDINGS_H_
 
 #include "../gui/OutputConsole.h"
+#include "../ship/Ship.h"
 
 class Bindings {
 private:
-	OutputConsole* output;
+	OutputConsole* 	output;
+	Ship*			playerShip;
 
 public:
-	Bindings(OutputConsole* output);
+	Bindings(OutputConsole* output, Ship* playerShip);
 	virtual ~Bindings();
 
 	void parseInput(CEGUI::String text);
@@ -29,7 +31,11 @@ public:
 	void runBinding(CEGUI::String funct, int argc, CEGUI::String* argv);
 
 private:
+	bool isNumber(CEGUI::String str);
+	float strToF(CEGUI::String str);
+
 	void echo(int argc, CEGUI::String* argv);
+	void thrust(int argc, CEGUI::String* argv);
 };
 
 #endif /* BINDINGS_H_ */

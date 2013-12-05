@@ -12,22 +12,26 @@
 #include "InputField.h"
 #include "OutputConsole.h"
 #include "InfoPanel.h"
+#include "../coding/Bindings.h"
+#include "../ship/Ship.h"
 
 class ShipInterface {
 private:
-	CEGUI::Window* rootWindow;
-	CEGUI::Window* console;
-	CEGUI::FrameWindow* testFrame;
+	CEGUI::Window* 			rootWindow;
+	CEGUI::Window* 			console;
+	CEGUI::FrameWindow* 	testFrame;
 
 public:
-	OutputConsole* outputConsole;
-	InputField* inputField;
+	OutputConsole* 			outputConsole;
+	InputField* 			inputField;
+	InfoPanel* 				infoPanel;
+	Bindings* 				bindings;
 
 public:
-	ShipInterface();
+	ShipInterface(Ship* playerShip);
 	~ShipInterface();
 
-	void update();
+	void update(const Ship& ship);
 	void event(SDL_Event* evt);
 
 private:

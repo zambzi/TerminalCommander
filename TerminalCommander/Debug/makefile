@@ -8,6 +8,8 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include src/utils/subdir.mk
+-include src/ship/subdir.mk
 -include src/main/subdir.mk
 -include src/gui/subdir.mk
 -include src/coding/subdir.mk

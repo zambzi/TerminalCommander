@@ -12,9 +12,11 @@ TCApp::TCApp():
 	resolutionY(480),
 	depth(32),
 	displaySurface(NULL),
-	isRunning(true){
+	isRunning(true)
+{
 	interface=NULL;
-
+	playerShip = new Ship();
+	physics = new Physics(playerShip);
 }
 
 TCApp::TCApp(int _resolutionX, int _resolutionY, int _depth):
@@ -22,8 +24,11 @@ TCApp::TCApp(int _resolutionX, int _resolutionY, int _depth):
 				resolutionY(_resolutionY),
 				depth(_depth),
 				displaySurface(NULL),
-				isRunning(true){
+				isRunning(true)
+{
 	interface=NULL;
+	playerShip = new Ship();
+	physics = new Physics(playerShip);
 }
 
 TCApp::~TCApp() {
@@ -62,7 +67,8 @@ bool TCApp::init(){
 	setupGL();
 
 	CEGUI::OpenGLRenderer::bootstrapSystem();
-	interface = new ShipInterface();
+
+	interface = new ShipInterface(playerShip);
 	SDL_EnableUNICODE(1);
 	SDL_EnableKeyRepeat(SDL_DEFAULT_REPEAT_DELAY, SDL_DEFAULT_REPEAT_INTERVAL);
 	SDL_ShowCursor(SDL_DISABLE);
@@ -79,7 +85,9 @@ void TCApp::render(){
 }
 
 void TCApp::update(){
-
+	interface->update(*playerShip);
+	physics->update();
+	playerShip->update();
 }
 
 void TCApp::cleanup(){
@@ -111,10 +119,8 @@ void TCApp::memSetupGL(){
 	SDL_GL_SetAttribute(SDL_GL_ACCUM_GREEN_SIZE, 8);
 	SDL_GL_SetAttribute(SDL_GL_ACCUM_ALPHA_SIZE, 8);
 
-	//SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 1);
-	//SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 8);
-
 	SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 16);
 	SDL_GL_SetAttribute(SDL_GL_BUFFER_SIZE, 32);
 }
+
 

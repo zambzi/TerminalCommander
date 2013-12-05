@@ -20,17 +20,16 @@ private:
 	CEGUI::Window*				ifWindow;
 
 	OutputConsole* 				output;
-	Bindings* 					bindings;
+	Bindings*					bindings;
 
 	std::deque<CEGUI::String>	inputHistory;
 	int							currHistoryRecord;
 	const int					maxHistory=20;
 
 public:
-	InputField(OutputConsole* output);
+	InputField(OutputConsole* output, Bindings* bindings);
 	~InputField();
 
-	void isRunClicked(OutputConsole* output);
 	void historyUp();
 	void historyDown();
 	void processCode();

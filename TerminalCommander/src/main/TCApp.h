@@ -11,6 +11,8 @@
 #include "stdafx.h"
 #include "SurfaceManager.h"
 #include "../gui/ShipInterface.h"
+#include "../ship/Ship.h"
+#include "../ship/Physics.h"
 
 class TCApp {
 private:
@@ -20,7 +22,9 @@ private:
 
 	SDL_Surface*	displaySurface;
 
-	ShipInterface* interface;
+	ShipInterface* 	interface;
+	Ship*			playerShip;
+	Physics*		physics;
 
 public:
 	bool 			isRunning;

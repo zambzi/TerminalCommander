@@ -9,7 +9,7 @@
 
 using namespace CEGUI;
 
-ShipInterface::ShipInterface(){
+ShipInterface::ShipInterface(Ship* playerShip){
 	rootWindow = WindowManager::getSingleton().createWindow("DefaultWindow", "root");
 	System::getSingleton().setGUISheet(rootWindow);
 
@@ -22,10 +22,11 @@ ShipInterface::ShipInterface(){
 	console = WindowManager::getSingleton().loadWindowLayout("ship-gui.xml");
 
 	outputConsole = new OutputConsole();
-	inputField = new InputField(outputConsole);
+	bindings = new Bindings(outputConsole, playerShip);
+	inputField = new InputField(outputConsole, bindings);
+	infoPanel = new InfoPanel();
 
 	rootWindow->addChildWindow(console);
-
 }
 
 ShipInterface::~ShipInterface() {
@@ -57,7 +58,8 @@ void ShipInterface::setResourceGroups(){
 		parser->setProperty("SchemaDefaultResourceGroup", "xml_schemas");
 }
 
-void ShipInterface::update(){
+void ShipInterface::update(const Ship& ship){
+	infoPanel->update(ship);
 }
 
 void ShipInterface::event(SDL_Event* evt){
