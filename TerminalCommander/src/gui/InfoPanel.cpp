@@ -24,14 +24,17 @@ void InfoPanel::update(const Ship& ship){
 	str.precision(2);
 	str<<std::fixed;
 
-	str<<	"POS: X:"	<<	Dials::getLocation(ship).x	<<
-			"  Y:"		<<	Dials::getLocation(ship).y	<<
-			"  Z:"		<<	Dials::getLocation(ship).z	<<
-			"\nDIR: X:"	<<	Dials::getBearings(ship).x	<<
-			"  Y:"		<<	Dials::getBearings(ship).y	<<
-			"  Z:"		<<	Dials::getBearings(ship).z	<<
-			"\nV:"		<<	Dials::getVelocity(ship)	<<
-			"\nThrust:"	<<	Dials::getThrust(ship);
+	str<<	"POS: X:"			<<	Dials::getLocation(ship).x	<<
+			"  Y:"				<<	Dials::getLocation(ship).y	<<
+			"  Z:"				<<	Dials::getLocation(ship).z	<<
+			"\nBEARINGS: x:"	<<	Dials::getBearings(ship).x	<<
+			"  y:"				<<	Dials::getBearings(ship).y	<<
+			"  z:"				<<	Dials::getBearings(ship).z	<<
+			"\nNAV: x:"			<<  Dials::getNav(ship).x		<<
+			"y:"				<<  Dials::getNav(ship).y		<<
+			"z:"				<<  Dials::getNav(ship).z		<<
+			"\nV:"				<<	Dials::getVelocity(ship)	<<
+			"\nThrust:"			<<	Dials::getThrust(ship);
 
 
 	text = str.str();

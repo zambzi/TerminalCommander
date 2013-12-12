@@ -10,19 +10,22 @@
 
 
 #include "../main/stdafx.h"
-#include "../utils/Vec3.h"
+#include "ReactionWheels.h"
 #include "Thrusters.h"
+#include "Nav.h"
 
 class Ship {
 private:
-	Vec3		position;
-	Vec3		bearings;
-	Vec3		velocity;
+	glm::vec3		position;
+	glm::vec3		bearings;
+	glm::vec3		velocity;
 
-	const int	mass;
+	int				mass;
 
 public:
-	Thrusters* 	thrusters;
+	ReactionWheels* rWheels;
+	Thrusters* 		thrusters;
+	Nav*			nav;
 
 public:
 	Ship();
@@ -31,6 +34,8 @@ public:
 	friend class Dials;
 
 	void update();
+	const glm::vec3* getBearings() const;
+	const glm::vec3* getPosition() const;
 };
 
 #endif /* SHIP_H_ */

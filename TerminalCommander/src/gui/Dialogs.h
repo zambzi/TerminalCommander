@@ -17,17 +17,31 @@ private:
 	static Dialogs* 					dialogs;
 
 public:
-	enum msg					{	errProgNotFound,
-										errArgNotFound,
-										errWrongParam,
-										errParamOutOfScope,
+	enum msg					{		errValNotFound,
+										errParamNotFound,
+										errWrongVal,
+										errValOutOfScope,
+										errNavMemEmpty,
+										errCantFindNav,
+										errCurrNA,
 										infThrustInProgress,
 										infThrustFinished,
 										infBurnInProgress,
 										infBurnFinished,
-										hlpThrust,
+										infRotationInProgress,
+										infRotationFinished,
+										infNavSet,
+										infNavSaved,
+										infNavDeleted,
+										infNavAllDeleted,
+										infNavPrint,
 										hlpMain,
+										hlpKeys,
 										hlpList,
+										hlpSyntax,
+										hlpThrust,
+										hlpNav,
+										hlpRWheels,
 										msgWelcome
 									};
 

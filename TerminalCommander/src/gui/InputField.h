@@ -23,8 +23,8 @@ private:
 	Bindings*					bindings;
 
 	std::deque<CEGUI::String>	inputHistory;
-	int							currHistoryRecord;
-	const int					maxHistory=20;
+	unsigned int				currHistoryRecord;
+	static const unsigned int	MAX_HISTORY=100;
 
 public:
 	InputField(OutputConsole* output, Bindings* bindings);

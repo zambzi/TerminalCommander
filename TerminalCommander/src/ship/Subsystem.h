@@ -8,6 +8,8 @@
 #ifndef SUBSYSTEM_H_
 #define SUBSYSTEM_H_
 
+#include "../gui/Dialogs.h"
+
 class Subsystem {
 protected:
 	int					power;
@@ -25,6 +27,8 @@ protected:
 	void removePower(int amount);
 	void fullPower();
 	void nullPower();
+
+	void sendMessage(Dialogs::msg message);
 
 	void update();
 };

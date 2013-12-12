@@ -17,7 +17,7 @@ public:
 public:
 	Vec3();
 	Vec3(float x, float y, float z);
-	Vec3(Vec3* vec3);
+	Vec3(const Vec3* vec3);
 	~Vec3();
 
 	void setCoords(float x, float y, float z);

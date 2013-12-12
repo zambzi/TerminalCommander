@@ -12,13 +12,10 @@
 #include "../ship/Ship.h"
 
 class Bindings {
-private:
-	OutputConsole* 	output;
-	Ship*			playerShip;
 
 public:
-	Bindings(OutputConsole* output, Ship* playerShip);
-	virtual ~Bindings();
+	Bindings();
+	~Bindings();
 
 	void parseInput(CEGUI::String text);
 
@@ -32,10 +29,11 @@ public:
 
 private:
 	bool isNumber(CEGUI::String str);
-	float strToF(CEGUI::String str);
 
 	void echo(int argc, CEGUI::String* argv);
 	void thrust(int argc, CEGUI::String* argv);
+	void nav(int argc, CEGUI::String* argv);
+	void rWheels(int argc, CEGUI::String* argv);
 };
 
 #endif /* BINDINGS_H_ */

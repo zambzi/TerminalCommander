@@ -23,9 +23,11 @@ void TCApp::event(SDL_Event* evt){
 
 		case SDL_KEYDOWN:
 			key = convertKey(evt->key.keysym.sym);
-			CEGUI::System::getSingleton().injectKeyDown(key);
-			if(evt->key.keysym.unicode !=0)
-				CEGUI::System::getSingleton().injectChar(evt->key.keysym.unicode);
+			if(!(evt->key.keysym.mod & KMOD_RSHIFT)){
+				CEGUI::System::getSingleton().injectKeyDown(key);
+				if(evt->key.keysym.unicode !=0)
+					CEGUI::System::getSingleton().injectChar(evt->key.keysym.unicode);
+			}
 			keyDown(evt);
 			break;
 

@@ -18,21 +18,25 @@ Thrusters::Thrusters(){
 Thrusters::~Thrusters() {}
 
 void Thrusters::setThrust(float value){
+	sendMessage(Dialogs::infThrustInProgress);
 	desiredThrust = value;
 	thrustChange = true;
 }
 
 void Thrusters::setThrustToVelocity(float velocity){
+	sendMessage(Dialogs::infBurnInProgress);
 	desiredVelocity = velocity;
 	speedMatching = true;
 }
 
 void Thrusters::fullThrust(){
+	sendMessage(Dialogs::infThrustInProgress);
 	desiredThrust = Thrusters::MAX_THRUST;
 	thrustChange = true;
 }
 
 void Thrusters::nullThrust(){
+	sendMessage(Dialogs::infThrustInProgress);
 	desiredThrust = 0;
 	thrustChange = true;
 }
@@ -45,21 +49,25 @@ void Thrusters::changeThrust(){
 	if(thrust>=Thrusters::MAX_THRUST*powerModifier){
 		thrust=Thrusters::MAX_THRUST*powerModifier;
 		thrustChange = false;
+		sendMessage(Dialogs::infThrustFinished);
 	}
 
 	if(thrust<0){
 		thrust=0;
 		thrustChange = false;
+		sendMessage(Dialogs::infThrustFinished);
 	}
 
 	if(thrust<desiredThrust+Thrusters::THRUST_CHANGE_RATE*2 &&
 			thrust>desiredThrust-Thrusters::THRUST_CHANGE_RATE*2){
 		thrust=desiredThrust;
 		thrustChange = false;
+		sendMessage(Dialogs::infThrustFinished);
 	}
 
 }
 
+//TODO: finish burn
 void Thrusters::matchToSpeed(const float currentVelocity){
 	thrustChange = true;
 	if(currentVelocity>desiredVelocity){}

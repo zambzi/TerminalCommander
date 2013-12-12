@@ -22,7 +22,8 @@ public:
 	void update();
 
 private:
-	void thrustApply(Ship* ship);
+	void applyForces(Ship* ship);
+	void applyTorque(Ship* ship);
 	void move(Ship* ship);
 };
 

@@ -6,6 +6,7 @@
  */
 
 #include "Subsystem.h"
+#include "../gui/ShipInterface.h"
 
 Subsystem::Subsystem() : power(50), subsysHealth(Subsystem::MAX_HEALTH){}
 
@@ -33,4 +34,8 @@ void Subsystem::nullPower(){
 
 void Subsystem::update(){
 
+}
+
+void Subsystem::sendMessage(Dialogs::msg message){
+	ShipInterface::getInstance()->outputConsole->append(Dialogs::getInstance()->getDialog(message));
 }

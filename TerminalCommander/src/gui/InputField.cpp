@@ -9,7 +9,7 @@
 #include "../ship/Ship.h"
 
 
-InputField::InputField(OutputConsole* output, Bindings* bindings) {
+InputField::InputField(OutputConsole* output, Bindings* bindings){
 	this->output = output;
 	CEGUI::WindowManager& mgr = CEGUI::WindowManager::getSingleton();
 	field = static_cast<CEGUI::MultiLineEditbox*>(mgr.getWindow("consoleInputField"));
@@ -35,29 +35,35 @@ bool InputField::runCode(const CEGUI::EventArgs& evt){
 void InputField::processCode(){
 	if(!field->getText().empty()){
 		inputHistory.push_front(field->getText());
-		if(inputHistory.size()>maxHistory)
+		if(inputHistory.size()>InputField::MAX_HISTORY)
 			inputHistory.pop_back();
-		currHistoryRecord=-1;
+		currHistoryRecord=0;
 
 		bindings->parseInput(field->getText());
 		field->setText("");
 	}
 }
 
+
+//TODO:eliminate double history index, while changing down-up events
 void InputField::historyUp(){
 	if(inputHistory.size()!=0){
-		currHistoryRecord++;
 		if(currHistoryRecord>=inputHistory.size())
 			currHistoryRecord=0;
 		field->setText(inputHistory[currHistoryRecord]);
+		field->setCaratIndex(inputHistory[currHistoryRecord].length());
+		currHistoryRecord++;
 	}
 }
 
 void InputField::historyDown(){
-	if(inputHistory.size()!=0){
+	if(inputHistory.size()!=0 && currHistoryRecord>0){
+		field->setText(inputHistory[currHistoryRecord-1]);
+		field->setCaratIndex(inputHistory[currHistoryRecord-1].length());
 		currHistoryRecord--;
-		if(currHistoryRecord<0)
-			currHistoryRecord=inputHistory.size()-1;
-		field->setText(inputHistory[currHistoryRecord]);
+	}
+	else{
+		field->setText("");
+		currHistoryRecord=inputHistory.size();
 	}
 }

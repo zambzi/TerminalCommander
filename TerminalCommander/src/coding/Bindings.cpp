@@ -8,15 +8,9 @@
 #include "Bindings.h"
 #include <algorithm>
 
-Bindings::Bindings(OutputConsole* output, Ship* playerShip) {
-	this->output = output;
-	this->playerShip = playerShip;
+Bindings::Bindings() {}
 
-}
-
-Bindings::~Bindings() {
-	// TODO Auto-generated destructor stub
-}
+Bindings::~Bindings() {}
 
 /**
  * This method will iterate through text string from input console
@@ -66,12 +60,10 @@ void Bindings::parseInput(CEGUI::String text){
 
 
 bool Bindings::isNumber(CEGUI::String str){
-	bool isNegative = false;
 	bool isFloat = false;
 	if(str.empty()) return false;
-	for(int i=0; i<str.length(); i++){
+	for(unsigned int i=0; i<str.length(); i++){
 		if(i==0 && str[i]=='-'){
-			isNegative = true;
 			continue;
 		}
 		if(!std::isdigit(str[i])){
@@ -82,8 +74,4 @@ bool Bindings::isNumber(CEGUI::String str){
 		}
 	}
 	return true;
-}
-
-float Bindings::strToF(CEGUI::String str){
-
 }

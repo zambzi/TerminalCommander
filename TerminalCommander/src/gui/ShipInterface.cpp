@@ -9,7 +9,10 @@
 
 using namespace CEGUI;
 
-ShipInterface::ShipInterface(Ship* playerShip){
+bool ShipInterface::instanceExist = false;
+ShipInterface* ShipInterface::interface = NULL;
+
+ShipInterface::ShipInterface(const Ship* playerShip) : playerShip(playerShip){
 	rootWindow = WindowManager::getSingleton().createWindow("DefaultWindow", "root");
 	System::getSingleton().setGUISheet(rootWindow);
 
@@ -22,17 +25,36 @@ ShipInterface::ShipInterface(Ship* playerShip){
 	console = WindowManager::getSingleton().loadWindowLayout("ship-gui.xml");
 
 	outputConsole = new OutputConsole();
-	bindings = new Bindings(outputConsole, playerShip);
+	bindings = new Bindings();
 	inputField = new InputField(outputConsole, bindings);
 	infoPanel = new InfoPanel();
 
 	rootWindow->addChildWindow(console);
 }
 
+ShipInterface* ShipInterface::getInstance(){
+	if(instanceExist){
+		return interface;
+	}
+	else
+		return NULL;
+}
+
+ShipInterface* ShipInterface::instantiate(const Ship* playerShip){
+	if(!instanceExist){
+		interface = new ShipInterface(playerShip);
+		instanceExist = true;
+		return interface;
+	}
+	else
+		return interface;
+}
+
 ShipInterface::~ShipInterface() {
 	delete outputConsole;
 	delete inputField;
 	WindowManager::getSingleton().destroyAllWindows();
+	instanceExist = false;
 }
 
 void ShipInterface::setResourceProvider(){
@@ -58,8 +80,8 @@ void ShipInterface::setResourceGroups(){
 		parser->setProperty("SchemaDefaultResourceGroup", "xml_schemas");
 }
 
-void ShipInterface::update(const Ship& ship){
-	infoPanel->update(ship);
+void ShipInterface::update(const Ship& playerShip){
+	infoPanel->update(playerShip);
 }
 
 void ShipInterface::event(SDL_Event* evt){

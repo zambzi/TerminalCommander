@@ -10,11 +10,22 @@
 
 
 #include <iostream>
+
 #include <SDL/SDL.h>
+
 #include <GL/gl.h>
 #include <GL/freeglut.h>
+
 #include <CEGUI/CEGUI.h>
 #include <CEGUI/RendererModules/OpenGL/CEGUIOpenGLRenderer.h>
+
+#include <math.h>
+#include <glm/glm.hpp>
+#include <glm/gtx/norm.hpp>
+#include <glm/core/func_common.hpp>
+#include <glm/gtx/rotate_vector.hpp>
+
+#define _USE_MATH_DEFINES
 
 
 #endif /* STDAFX_H_ */

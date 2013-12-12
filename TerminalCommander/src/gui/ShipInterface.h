@@ -17,6 +17,9 @@
 
 class ShipInterface {
 private:
+	static bool				instanceExist;
+	static ShipInterface*	interface;
+
 	CEGUI::Window* 			rootWindow;
 	CEGUI::Window* 			console;
 	CEGUI::FrameWindow* 	testFrame;
@@ -26,15 +29,18 @@ public:
 	InputField* 			inputField;
 	InfoPanel* 				infoPanel;
 	Bindings* 				bindings;
+	const Ship*					playerShip;
 
 public:
-	ShipInterface(Ship* playerShip);
 	~ShipInterface();
 
-	void update(const Ship& ship);
+	static ShipInterface* getInstance();
+	static ShipInterface* instantiate(const Ship* playerShip);
+	void update(const Ship& playerShip);
 	void event(SDL_Event* evt);
 
 private:
+	ShipInterface(const Ship* playerShip);
 	void setResourceProvider();
 	void setResourceGroups();
 };

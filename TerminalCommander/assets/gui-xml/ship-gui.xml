@@ -15,6 +15,7 @@
 			<Property Name="CloseButtonEnabled" Value = "False" />
 			<Window Type="TaharezLook/MultiLineEditbox" Name="consoleOutputFeed">
 		        <Property Name="UnifiedAreaRect" Value="{{0.0,0.0},{0.0,0.0},{1.0,0.0},{1.0,0.0}}" />
+		        <Propert Name="FontSize" Value="7px" />
 		    	<Property Name="ReadOnly" Value="True" />
 		    </Window>
 		</Window>

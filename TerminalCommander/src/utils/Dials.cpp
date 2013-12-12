@@ -7,20 +7,24 @@
 
 #include "Dials.h"
 
-const Vec3& Dials::getLocation(const Ship& ship){
+const glm::vec3& Dials::getLocation(const Ship& ship){
 	return ship.position;
 }
 
 const float Dials::getVelocity(const Ship& ship){
-	return ship.velocity.getMagnitude();
+	return glm::length(ship.velocity);
 }
 
-const Vec3& Dials::getBearings(const Ship& ship){
+const glm::vec3& Dials::getBearings(const Ship& ship){
 	return ship.bearings;
 }
 
-const float& Dials::getThrust(const Ship& ship){
+const float Dials::getThrust(const Ship& ship){
 	return ship.thrusters->getThrust();
+}
+
+const glm::vec3& Dials::getNav(const Ship& ship){
+	return *ship.nav->getNav();
 }
 
 

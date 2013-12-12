@@ -7,28 +7,26 @@
 
 #include "TCApp.h"
 
-TCApp::TCApp():
-	resolutionX(640),
-	resolutionY(480),
-	depth(32),
-	displaySurface(NULL),
-	isRunning(true)
-{
+TCApp::TCApp(){
+	this->resolutionX=640;
+	this->resolutionY=480;
+	this->depth=32;
+	displaySurface=NULL;
+	isRunning=true;
 	interface=NULL;
-	playerShip = new Ship();
-	physics = new Physics(playerShip);
+	playerShip = NULL;
+	physics = NULL;
 }
 
-TCApp::TCApp(int _resolutionX, int _resolutionY, int _depth):
-				resolutionX(_resolutionX),
-				resolutionY(_resolutionY),
-				depth(_depth),
-				displaySurface(NULL),
-				isRunning(true)
-{
+TCApp::TCApp(int _resolutionX, int _resolutionY, int _depth){
+	this->resolutionX=_resolutionX;
+	this->resolutionY=_resolutionY;
+	this->depth=_depth;
+	displaySurface=NULL;
+	isRunning=true;
 	interface=NULL;
-	playerShip = new Ship();
-	physics = new Physics(playerShip);
+	playerShip = NULL;
+	physics = NULL;
 }
 
 TCApp::~TCApp() {
@@ -63,12 +61,14 @@ bool TCApp::init(){
 	if(displaySurface == NULL){
 		return false;
 	}
-
 	setupGL();
 
 	CEGUI::OpenGLRenderer::bootstrapSystem();
 
-	interface = new ShipInterface(playerShip);
+	playerShip = new Ship();
+	physics = new Physics(playerShip);
+	interface = ShipInterface::instantiate(playerShip);
+
 	SDL_EnableUNICODE(1);
 	SDL_EnableKeyRepeat(SDL_DEFAULT_REPEAT_DELAY, SDL_DEFAULT_REPEAT_INTERVAL);
 	SDL_ShowCursor(SDL_DISABLE);
