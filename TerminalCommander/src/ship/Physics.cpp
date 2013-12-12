@@ -11,9 +11,7 @@ Physics::Physics(Ship* playerShip) {
 	this->playerShip = playerShip;
 }
 
-Physics::~Physics() {
-	// TODO Auto-generated destructor stub
-}
+Physics::~Physics() {}
 
 void Physics::applyForces(Ship* ship){
 

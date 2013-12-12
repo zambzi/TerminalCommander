@@ -29,8 +29,7 @@ TCApp::TCApp(int _resolutionX, int _resolutionY, int _depth){
 	physics = NULL;
 }
 
-TCApp::~TCApp() {
-}
+TCApp::~TCApp() {}
 
 int TCApp::run(){
 	if(init()==false){
@@ -92,6 +91,11 @@ void TCApp::update(){
 
 void TCApp::cleanup(){
 	delete interface;
+	delete playerShip;
+	delete physics;
+	interface = NULL;
+	playerShip = NULL;
+	physics = NULL;
 	SDL_FreeSurface(displaySurface);
 	SDL_Quit();
 }

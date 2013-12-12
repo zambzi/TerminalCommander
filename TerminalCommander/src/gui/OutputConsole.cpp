@@ -14,11 +14,11 @@ OutputConsole::OutputConsole() {
 	field->setText(Dialogs::getInstance()->getDialog(Dialogs::msgWelcome));
 }
 
-OutputConsole::~OutputConsole() {
-}
+OutputConsole::~OutputConsole() {}
 
 void OutputConsole::append(CEGUI::String text){
 	field->appendText(">"+text);
+	field->getVertScrollbar()->setScrollPosition(field->getVertScrollbar()->getDocumentSize()-field->getVertScrollbar()->getPageSize());
 }
 
 void OutputConsole::clear(){

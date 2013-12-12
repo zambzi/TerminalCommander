@@ -14,7 +14,6 @@ InputField::InputField(OutputConsole* output, Bindings* bindings){
 	CEGUI::WindowManager& mgr = CEGUI::WindowManager::getSingleton();
 	field = static_cast<CEGUI::MultiLineEditbox*>(mgr.getWindow("consoleInputField"));
 	runBtn = static_cast<CEGUI::PushButton*>(mgr.getWindow("runBtn"));
-	ifWindow = static_cast<CEGUI::Window*>(mgr.getWindow("backgroundWindow"));
 	currHistoryRecord = 0;
 
 	this->bindings = bindings;
@@ -24,7 +23,13 @@ InputField::InputField(OutputConsole* output, Bindings* bindings){
 }
 
 InputField::~InputField() {
-	// TODO Auto-generated destructor stub
+	if(!inputHistory.empty()){
+		std::deque<CEGUI::String>::iterator i;
+		for(i = inputHistory.begin(); i != inputHistory.end(); i++){
+			i->clear();
+		}
+		inputHistory.clear();
+	}
 }
 
 bool InputField::runCode(const CEGUI::EventArgs& evt){

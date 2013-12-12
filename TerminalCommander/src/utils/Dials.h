@@ -12,11 +12,11 @@
 
 class Dials {
 public:
-	static const glm::vec3& getLocation(const Ship& ship);
+	static const glm::vec3 getLocation(const Ship& ship);
 	static const float getVelocity(const Ship& ship);
-	static const glm::vec3& getBearings(const Ship& ship);
+	static const glm::vec3 getBearings(const Ship& ship);
 	static const float getThrust(const Ship& ship);
-	static const glm::vec3& getNav(const Ship& ship);
+	static const glm::vec3 getNav(const Ship& ship);
 };
 
 #endif /* DIALS_H_ */

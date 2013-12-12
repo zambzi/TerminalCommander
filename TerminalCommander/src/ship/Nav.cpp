@@ -13,42 +13,35 @@ Nav::Nav() {
 }
 
 Nav::~Nav() {
-	deleteAll();
-}
-
-void Nav::deleteAll(){
-	std::map<CEGUI::String, glm::vec3*>::iterator i;
-
-	for(i = navMemory.begin(); i!=navMemory.end(); i++){
-		delete i->second;
-	}
 	navMemory.clear();
 }
+
 
 void Nav::setNav(float x, float y, float z){
 	headingNav = glm::vec3(x,y,z);
 }
 
-const glm::vec3* Nav::getNav(){
-	return &headingNav;
+const glm::vec3 Nav::getNav(){
+	return headingNav;
 }
 
 void Nav::saveNav(CEGUI::String name, float x, float y, float z){
-	navMemory[name] = new glm::vec3(x,y,z);
+	navMemory[name] = glm::vec3(x,y,z);
+	glm::vec3 test = navMemory[name];
 }
 
-std::map<CEGUI::String, glm::vec3*>::iterator Nav::getNavFromMem(CEGUI::String name){
-	std::map<CEGUI::String, glm::vec3*>::iterator i;
+std::map<CEGUI::String, glm::vec3>::iterator Nav::getNavFromMem(CEGUI::String name){
+	std::map<CEGUI::String, glm::vec3>::iterator i;
 
 	i = navMemory.find(name);
 	return i;
 }
 
 const glm::vec3* Nav::loadNav(CEGUI::String name){
-	std::map<CEGUI::String, glm::vec3*>::iterator i = getNavFromMem(name);
+	std::map<CEGUI::String, glm::vec3>::iterator i = getNavFromMem(name);
 
 	if(i!=navMemory.end())
-		return i->second;
+		return &i->second;
 	else
 		return NULL;
 }
@@ -56,10 +49,9 @@ const glm::vec3* Nav::loadNav(CEGUI::String name){
 
 
 bool Nav::deleteNav(CEGUI::String name){
-	std::map<CEGUI::String, glm::vec3*>::iterator i = getNavFromMem(name);
+	std::map<CEGUI::String, glm::vec3>::iterator i = getNavFromMem(name);
 
 	if(i!=navMemory.end()){
-		delete i->second;
 		navMemory.erase(i);
 		return true;
 	}
@@ -70,7 +62,7 @@ bool Nav::deleteAllNavs(){
 	if(navMemory.empty())
 		return false;
 
-	deleteAll();
+	navMemory.clear();
 
 	return true;
 }
@@ -81,16 +73,16 @@ CEGUI::String Nav::printNavs(){
 	str.precision(2);
 	str<<std::fixed;
 
-	std::map<CEGUI::String, glm::vec3*>::iterator i;
+	std::map<CEGUI::String, glm::vec3>::iterator i;
 
 	if(navMemory.empty()) return "";
 
 	for(i = navMemory.begin(); i!=navMemory.end(); i++){
 		str<<	"   "	<<
 				i->first << " | "<<
-				i->second->x<< " | "<<
-				i->second->y<< " | "<<
-				i->second->z<< "\n";
+				i->second.x<< " | "<<
+				i->second.y<< " | "<<
+				i->second.z<< "\n";
 	}
 
 	navs = str.str();

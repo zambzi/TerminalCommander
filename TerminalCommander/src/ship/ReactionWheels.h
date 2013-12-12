@@ -35,7 +35,7 @@ public:
 	ReactionWheels();
 	~ReactionWheels();
 
-	void turnToHeading(const glm::vec3* navVector, const glm::vec3* bearings, const glm::vec3* position);
+	void turnToHeading(const glm::vec3 navVector, const glm::vec3 bearings, const glm::vec3 position);
 	void strafe(direction dir, float impulse, bool loop);
 	void stopTurn();
 	void stopStrafe();

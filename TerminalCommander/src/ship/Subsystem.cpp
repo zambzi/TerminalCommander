@@ -8,7 +8,7 @@
 #include "Subsystem.h"
 #include "../gui/ShipInterface.h"
 
-Subsystem::Subsystem() : power(50), subsysHealth(Subsystem::MAX_HEALTH){}
+Subsystem::Subsystem() : power(100), subsysHealth(Subsystem::MAX_HEALTH){}
 
 Subsystem::~Subsystem() {}
 

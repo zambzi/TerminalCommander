@@ -34,8 +34,8 @@ public:
 	friend class Dials;
 
 	void update();
-	const glm::vec3* getBearings() const;
-	const glm::vec3* getPosition() const;
+	const glm::vec3 getBearings() const;
+	const glm::vec3 getPosition() const;
 };
 
 #endif /* SHIP_H_ */

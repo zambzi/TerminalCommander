@@ -17,7 +17,6 @@ class InputField {
 private:
 	CEGUI::MultiLineEditbox* 	field;
 	CEGUI::PushButton* 			runBtn;
-	CEGUI::Window*				ifWindow;
 
 	OutputConsole* 				output;
 	Bindings*					bindings;

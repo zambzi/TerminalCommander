@@ -52,10 +52,6 @@ void Bindings::parseInput(CEGUI::String text){
 		}
 	}
 	runBinding(funct, argc, argv);
-
-	CEGUI::WindowManager& mgr = CEGUI::WindowManager::getSingleton();
-	CEGUI::MultiLineEditbox* field = static_cast<CEGUI::MultiLineEditbox*>(mgr.getWindow("consoleOutputFeed"));
-	field->getVertScrollbar()->setScrollPosition(field->getVertScrollbar()->getDocumentSize()-field->getVertScrollbar()->getPageSize());
 }
 
 

@@ -22,12 +22,12 @@ Ship::~Ship() {
 	delete rWheels;
 }
 
-const glm::vec3* Ship::getBearings() const{
-	return &bearings;
+const glm::vec3 Ship::getBearings() const{
+	return bearings;
 }
 
-const glm::vec3* Ship::getPosition() const{
-	return &position;
+const glm::vec3 Ship::getPosition() const{
+	return position;
 }
 
 void Ship::update(){

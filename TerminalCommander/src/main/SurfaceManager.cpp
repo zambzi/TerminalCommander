@@ -7,14 +7,9 @@
 
 #include "SurfaceManager.h"
 
-SurfaceManager::SurfaceManager() {
-	// TODO Auto-generated constructor stub
+SurfaceManager::SurfaceManager() {}
 
-}
-
-SurfaceManager::~SurfaceManager() {
-	// TODO Auto-generated destructor stub
-}
+SurfaceManager::~SurfaceManager() {}
 
 SDL_Surface* SurfaceManager::loadSurface(char* file){
 	SDL_Surface* surface = NULL;

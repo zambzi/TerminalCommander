@@ -29,7 +29,7 @@ public:
 	InputField* 			inputField;
 	InfoPanel* 				infoPanel;
 	Bindings* 				bindings;
-	const Ship*					playerShip;
+	const Ship*				playerShip;
 
 public:
 	~ShipInterface();

@@ -23,12 +23,11 @@ void TCApp::event(SDL_Event* evt){
 
 		case SDL_KEYDOWN:
 			key = convertKey(evt->key.keysym.sym);
-			if(!(evt->key.keysym.mod & KMOD_RSHIFT)){
+			if(!keyDown(evt)){
 				CEGUI::System::getSingleton().injectKeyDown(key);
 				if(evt->key.keysym.unicode !=0)
 					CEGUI::System::getSingleton().injectChar(evt->key.keysym.unicode);
 			}
-			keyDown(evt);
 			break;
 
 		case SDL_KEYUP:
@@ -39,14 +38,15 @@ void TCApp::event(SDL_Event* evt){
 	}
 }
 
-void TCApp::keyDown(SDL_Event* evt){
+bool TCApp::keyDown(SDL_Event* evt){
 	switch(evt->key.keysym.sym){
-		case SDLK_PAGEUP:				interface->inputField->historyUp(); break;
-		case SDLK_PAGEDOWN: 			interface->inputField->historyDown(); break;
+		case SDLK_PAGEUP:				interface->inputField->historyUp(); return true;
+		case SDLK_PAGEDOWN: 			interface->inputField->historyDown(); return true;
 		case SDLK_RETURN:				if(evt->key.keysym.mod & KMOD_RSHIFT)
-											interface->inputField->processCode(); break;
+											interface->inputField->processCode(); return true;
 		default: break;
 	}
+	return false;
 }
 
 void TCApp::mouseDown(SDL_Event* evt){

@@ -8,7 +8,6 @@
 #include "Bindings.h"
 #include "../gui/Dialogs.h"
 #include "../gui/ShipInterface.h"
-#include "../utils/Vec3.h"
 
 void Bindings::runBinding(CEGUI::String funct, int argc, CEGUI::String* argv){
 	OutputConsole* output = ShipInterface::getInstance()->outputConsole;
@@ -55,6 +54,7 @@ void Bindings::thrust(int argc,CEGUI::String* argv){
 					output->append(Dialogs::getInstance()->getDialog(Dialogs::errValOutOfScope)+argv[i]);
 				else
 					playerShip->thrusters->setThrust(thrust);
+				i++;
 			}
 			else
 				output->append(Dialogs::getInstance()->getDialog(Dialogs::errWrongVal)+argv[i]);
@@ -102,6 +102,7 @@ void Bindings::nav(int argc,CEGUI::String* argv){
 			}
 			else
 				output->append(Dialogs::getInstance()->getDialog(Dialogs::errWrongVal)+argv[i]);
+			i+=3;
 		}
 		else if(argv[i]=="-s"){
 
@@ -109,13 +110,14 @@ void Bindings::nav(int argc,CEGUI::String* argv){
 							isNumber(argv[i+3]) &&
 							isNumber(argv[i+4])){
 				x = strtof(argv[i+2].c_str(),NULL);
-				z = strtof(argv[i+3].c_str(),NULL);
-				y = strtof(argv[i+4].c_str(),NULL);
+				y = strtof(argv[i+3].c_str(),NULL);
+				z = strtof(argv[i+4].c_str(),NULL);
 				playerShip->nav->saveNav(argv[i+1],x,y,z);
 				output->append(Dialogs::getInstance()->getDialog(Dialogs::infNavSaved)+argv[i+1]);
 			}
 			else
 				output->append(Dialogs::getInstance()->getDialog(Dialogs::errWrongVal)+argv[i]);
+			i+=4;
 
 		}
 		else if(argv[i]=="-l"){
@@ -127,8 +129,8 @@ void Bindings::nav(int argc,CEGUI::String* argv){
 			}
 			else
 				output->append(Dialogs::getInstance()->getDialog(Dialogs::errCantFindNav)+argv[i+1]);
-			delete vector;
-
+			vector = NULL;
+			i++;
 		}
 		else if(argv[i]=="-p"){
 			CEGUI::String navlist = playerShip->nav->printNavs();
@@ -156,6 +158,7 @@ void Bindings::nav(int argc,CEGUI::String* argv){
 						output->append(Dialogs::getInstance()->getDialog(Dialogs::errCantFindNav)+argv[i+j]);
 				}
 			}
+			break;
 		}
 		else if(argv[i]=="-?"){
 			output->append(Dialogs::getInstance()->getDialog(Dialogs::hlpNav));

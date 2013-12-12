@@ -21,14 +21,13 @@ ReactionWheels::ReactionWheels() {
 
 ReactionWheels::~ReactionWheels() {}
 
-void ReactionWheels::turnToHeading(const glm::vec3* navVector, const glm::vec3* bearings, const glm::vec3* position){
+void ReactionWheels::turnToHeading(const glm::vec3 navVector, const glm::vec3 bearings, const glm::vec3 position){
 	//TODO: Send msg
-	//TODO: Wrong vectors safety code
 	//TODO: paramaters via value
 
-	if(*navVector != *position){
-		glm::vec3 source(*bearings);
-		glm::vec3 destination(*navVector - *position);
+	if(navVector != position){
+		glm::vec3 source(bearings);
+		glm::vec3 destination(navVector - position);
 		source = glm::normalize(source);
 		std::cout<<"before normalize\n";
 		destination = glm::normalize(destination);

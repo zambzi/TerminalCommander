@@ -1,0 +1,7 @@
+*.o
+*.d
+Debug/
+glm/
+CEGUI.log
+.cproject
+.project

@@ -14,9 +14,7 @@ InfoPanel::InfoPanel() {
 	field = static_cast<CEGUI::MultiLineEditbox*>(mgr.getWindow("panelOutputFeed"));
 }
 
-InfoPanel::~InfoPanel() {
-
-}
+InfoPanel::~InfoPanel() {}
 
 void InfoPanel::update(const Ship& ship){
 	std::string text;

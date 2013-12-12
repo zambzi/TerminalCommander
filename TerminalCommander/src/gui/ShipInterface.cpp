@@ -32,6 +32,15 @@ ShipInterface::ShipInterface(const Ship* playerShip) : playerShip(playerShip){
 	rootWindow->addChildWindow(console);
 }
 
+ShipInterface::~ShipInterface() {
+	delete outputConsole;
+	delete inputField;
+	delete bindings;
+	delete infoPanel;
+	WindowManager::getSingleton().destroyAllWindows();
+	instanceExist = false;
+}
+
 ShipInterface* ShipInterface::getInstance(){
 	if(instanceExist){
 		return interface;
@@ -48,13 +57,6 @@ ShipInterface* ShipInterface::instantiate(const Ship* playerShip){
 	}
 	else
 		return interface;
-}
-
-ShipInterface::~ShipInterface() {
-	delete outputConsole;
-	delete inputField;
-	WindowManager::getSingleton().destroyAllWindows();
-	instanceExist = false;
 }
 
 void ShipInterface::setResourceProvider(){
