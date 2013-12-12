@@ -1,0 +1,44 @@
+Terminal Commander readme:
+
+-----------
+
+DISCLAIMERS:
+
+-----------
+
+  Current look and feel of the program is default TaharezLook scheme from Crazy Eddie GUI (CEGUI) System. It will change in the future.
+  This project is just a hobby that I write in my spare time. Don't expect regular updates.
+
+-----------
+
+DESCRIPTION:
+
+-----------  
+
+  Since we have this little disclaimer out of a way, let's start with a little description:
+
+  Terminal Commander is a game that tries to mix space ship sims with traditional text adventures (and a little bit of roguelike). Target audience is - basically - nerds who enjoy playing around with command consoles and looking at white blobs of technical mumble.
+  The overall idea for this game goes like this: you (the player) are stranded in deep space on your ship. Your ship's OS is broken, and you have to get back home without using any of those fancy new GUIs, holographic displays and sexy comuter voice. Instead you have good old terminal and set of programs to help you survive in this time of need. You need to familiarize yourself with ship's API and the ship itself if you want to stay alive. A little bit of fast typing skills might also come in handy.
+
+-----------
+
+GAMEPLAY:
+
+-----------
+
+  Player needs to type commands into ship's computer by hand, executing programs with proper parameters to command her/his vessel. Output Console and Info Panel will constantly feed player any important info. Output Console reacts to player input, while Info Panel shows ship status (like velocity, coordinates, current navpoint, bearings, etc.).
+  There are no 'manual controls' (not yet, but maybe in future, there will be possibility for player to program manual controls by herself/himself), the only means of control is via the console. This means, for example, that player needs to type nav coordinates, execute Reaction Wheels app to position ship towards navpoint and, finally, command engines to start working at proper thrust level to get to that navpoint.
+  In future versions, there might be weapon systems, power core controls and power equalizer, shields, cargo bay, comms and other subsystems. Would you like to find out how it's like to fight enemy destroyer while using only command console instead of a joystick? Then - perhaps - final version of the game might be for you.
+
+
+-----------
+
+COMPILING:
+
+-----------
+
+  Current version of code requires SDL 1.2, CEGUI 0.7.6 and GLM 0.9.4.6.
+
+  Linux: TODO
+
+  Windows: TODO
