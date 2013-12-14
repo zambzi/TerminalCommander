@@ -19,6 +19,7 @@ private:
 	int				resolutionX;
 	int				resolutionY;
 	int				depth;
+	const int		FPS;
 
 	SDL_Surface*	displaySurface;
 
@@ -31,7 +32,7 @@ public:
 
 public:
 	TCApp();
-	TCApp(int _resolutionX, int _resolutionY, int _depth);
+	TCApp(int resolutionX, int resolutionY, int depth, int FPS);
 	virtual ~TCApp();
 
 	int run();

@@ -7,10 +7,10 @@
 
 #include "TCApp.h"
 
-TCApp::TCApp(){
-	this->resolutionX=640;
-	this->resolutionY=480;
-	this->depth=32;
+TCApp::TCApp():FPS(60){
+	resolutionX=640;
+	resolutionY=480;
+	depth=32;
 	displaySurface=NULL;
 	isRunning=true;
 	interface=NULL;
@@ -18,10 +18,10 @@ TCApp::TCApp(){
 	physics = NULL;
 }
 
-TCApp::TCApp(int _resolutionX, int _resolutionY, int _depth){
-	this->resolutionX=_resolutionX;
-	this->resolutionY=_resolutionY;
-	this->depth=_depth;
+TCApp::TCApp(int resolutionX, int resolutionY, int depth, int FPS):FPS(FPS){
+	this->resolutionX=resolutionX;
+	this->resolutionY=resolutionY;
+	this->depth=depth;
 	displaySurface=NULL;
 	isRunning=true;
 	interface=NULL;
@@ -38,6 +38,7 @@ int TCApp::run(){
 
 	SDL_Event evt;
 
+	Uint32 start = SDL_GetTicks();
 	while(isRunning){
 		while(SDL_PollEvent(&evt)){
 			event(&evt);
@@ -45,6 +46,11 @@ int TCApp::run(){
 
 		update();
 		render();
+
+		Uint32 difference = SDL_GetTicks()-start;
+		if(1000/FPS>difference){
+			SDL_Delay(1000/FPS-difference);
+		}
 	}
 	return 0;
 }
