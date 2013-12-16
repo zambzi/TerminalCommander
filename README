@@ -6,6 +6,8 @@ DISCLAIMERS:
 
 -----------
 
+  This software is provided "AS IS", there is no warranty, that the software will work, and creator is not to be held liable due to any potential damages that may occur due to use of this code.
+
   Current look and feel of the program is default TaharezLook scheme from Crazy Eddie GUI (CEGUI) System. It will change in the future.
   This project is just a hobby that I write in my spare time. Don't expect regular updates.
 
@@ -48,7 +50,7 @@ COMPILING:
     >  cmake ..
     >  make
 	
-    After build is completed, inside your build directory you will find TerminalCommander directory. That's where you can find executable and copy of an assets folder.
+    After build is completed, inside your build directory you will find TerminalCommander directory. That's where you can find executable.
 
     Currently there is no install, so don't 'make install'.
 

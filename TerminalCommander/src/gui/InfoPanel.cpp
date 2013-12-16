@@ -12,7 +12,7 @@
 
 #include "InfoPanel.h"
 #include "../utils/Dials.h"
-#include <strstream>
+#include <sstream>
 
 InfoPanel::InfoPanel() {
 	CEGUI::WindowManager& mgr = CEGUI::WindowManager::getSingleton();
@@ -23,7 +23,7 @@ InfoPanel::~InfoPanel() {}
 
 void InfoPanel::update(const Ship& ship){
 	std::string text;
-	std::ostringstream str;
+	std::stringstream str;
 	str.precision(2);
 	str<<std::fixed;
 

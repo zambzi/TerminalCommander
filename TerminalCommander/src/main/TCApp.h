@@ -23,19 +23,19 @@
 
 class TCApp {
 private:
-	int				resolutionX;
-	int				resolutionY;
-	int				depth;
-	const int		FPS;
+	int						resolutionX;
+	int						resolutionY;
+	int						depth;
+	const unsigned int		FPS;
 
-	SDL_Surface*	displaySurface;
+	SDL_Surface*			displaySurface;
 
-	ShipInterface* 	interface;
-	Ship*			playerShip;
-	Physics*		physics;
+	ShipInterface* 			interface;
+	Ship*					playerShip;
+	Physics*				physics;
 
 public:
-	bool 			isRunning;
+	bool 					isRunning;
 
 public:
 	TCApp();

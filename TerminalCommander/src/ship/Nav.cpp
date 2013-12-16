@@ -11,7 +11,7 @@
  ***********************************************/
 
 #include "Nav.h"
-#include <strstream>
+#include <sstream>
 
 Nav::Nav() {
 	headingNav = glm::vec3(1,0,0);
@@ -73,7 +73,7 @@ bool Nav::deleteAllNavs(){
 
 CEGUI::String Nav::printNavs(){
 	CEGUI::String navs;
-	std::ostringstream str;
+	std::stringstream str;
 	str.precision(2);
 	str<<std::fixed;
 

@@ -34,10 +34,6 @@ void Bindings::parseInput(CEGUI::String text){
 	for(unsigned int i = 0; i<text.length(); i++){
 
 		//TODO:multiple lines implementation
-		//if(text[i]=='\n'){
-		//	parseInput(text.substr(i+1,text.length()-i));
-		//	break;
-		//}
 
 		if(text[i]==' ' || text[i]=='\0' || i>=text.length()-1){
 
