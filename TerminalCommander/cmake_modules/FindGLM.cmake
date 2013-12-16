@@ -32,7 +32,8 @@
 # default search dirs
 SET(_glm_HEADER_SEARCH_DIRS
     "/usr/include"
-    "/usr/local/include")
+    "/usr/local/include"
+	"${CMAKE_CURRENT_SOURCE_DIR}/glm") #added to support direct search in in source dir --zambzi
 
 # check environment variable
 SET(_glm_ENV_ROOT_DIR "$ENV{GLM_ROOT_DIR}")

@@ -49,6 +49,12 @@ COMPILING:
     >  make
 	
     After build is completed, inside your build directory you will find TerminalCommander directory. Inside should be executable and assets directory. From here you can just run TerminalCommander executable.
-	
+
+    Currently there is no install, so don't 'make install'.
+
+  Potential issues:
+     -GLM: If you don't have glm package, and don't want to copy it's header files into your filesystem, you can just download glm from glm.g-truc.net, and then extract it to your TerminalCommander source directory (sourceRoot/TerminalCommander/glm)
+     -Cmake and GLUT: if cmake gives you NOTFOUND error on GLUT_Xi_LIBRARY and GLUT_Xmu_LIBRARY, install libxmu-dev and libxi-dev via apt-get or yum.
+     -CEGUI: due to the fact that newer versions of CEGUI have completely different dir structure and lib names (with added -0 suffix... weird, but ok), currently TerminalCommander is only compatible with 0.7.6 version. Versions 0.8 are going to be supported in near future.	
 
   Windows: TODO
