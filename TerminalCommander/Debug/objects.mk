@@ -4,5 +4,5 @@
 
 USER_OBJS :=
 
-LIBS := -lSDLmain -lSDL -lGL -lGLU -lglut -lCEGUIBase -lCEGUIOpenGLRenderer
+LIBS := -lSDLmain -lSDL -lGL -lglut -lCEGUIBase -lCEGUIOpenGLRenderer
 

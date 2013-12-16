@@ -37,8 +37,18 @@ COMPILING:
 
 -----------
 
-  Current version of code requires SDL 1.2, CEGUI 0.7.6 and GLM 0.9.4.6.
+  Current version of code requires OpenGL, GLUT, SDL 1.2, CEGUI 0.7.6 and GLM 0.9.4.6.
 
-  Linux: TODO
+  Linux: 
+
+    Download cmake ('apt-get install cmake cmake-gui' for eg.)
+	
+    Navigate to source directory and make 'build' directory inside (don't run cmake directly on source - it's cleaner that way), then run:
+
+    >  cmake ..
+    >  make
+	
+    After build is completed, inside your build directory you will find TerminalCommander directory. Inside should be executable and assets directory. From here you can just run TerminalCommander executable.
+	
 
   Windows: TODO

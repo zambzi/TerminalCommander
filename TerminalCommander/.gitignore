@@ -2,6 +2,7 @@
 *.d
 Debug/
 glm/
+build/
 CEGUI.log
 .cproject
 .project

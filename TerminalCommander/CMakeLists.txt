@@ -1,40 +1,54 @@
 cmake_minimum_required (VERSION 2.6)
 project (TerminalCommander)
 
-file(GLOB_RECURSE SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/coding/*)
-file(GLOB_RECURSE SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/gui/*)
-file(GLOB_RECURSE SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/main/*)
-file(GLOB_RECURSE SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/ship/*)
-file(GLOB_RECURSE SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/utils/*)
+set(execDirectory TerminalCommander)
 
-file(GLOB_RECURSE TARGET_HEADERS ${CMAKE_CURRENT_SOURCE_DIR}/src/coding/*.h)
-file(GLOB_RECURSE TARGET_HEADERS ${CMAKE_CURRENT_SOURCE_DIR}/src/gui/*.h)
-file(GLOB_RECURSE TARGET_HEADERS ${CMAKE_CURRENT_SOURCE_DIR}/src/main/*.h)
-file(GLOB_RECURSE TARGET_HEADERS ${CMAKE_CURRENT_SOURCE_DIR}/src/ship/*.h)
-file(GLOB_RECURSE TARGET_HEADERS ${CMAKE_CURRENT_SOURCE_DIR}/src/utils/*.h)
+#create executable directory
+file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/${execDirectory})
+
+#copy assets to executable directory
+file(	COPY ${CMAKE_CURRENT_SOURCE_DIR}/assets
+	DESTINATION ${CMAKE_BINARY_DIR}/${execDirectory} )
+
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/${execDirectory}/)
+
+#find all source and header files
+file(GLOB_RECURSE srcCoding ${CMAKE_CURRENT_SOURCE_DIR}/src/coding/*.cpp)
+file(GLOB_RECURSE srcGui ${CMAKE_CURRENT_SOURCE_DIR}/src/gui/*.cpp)
+file(GLOB_RECURSE srcMain ${CMAKE_CURRENT_SOURCE_DIR}/src/main/*.cpp)
+file(GLOB_RECURSE srcShip ${CMAKE_CURRENT_SOURCE_DIR}/src/ship/*.cpp)
+file(GLOB_RECURSE srcUtils ${CMAKE_CURRENT_SOURCE_DIR}/src/utils/*.cpp)
+
+#set cmake_modules directory as path to look for modules
+set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake_modules")
 
 find_package(OpenGL REQUIRED)
-find_package(GLM REQUIRED)
+find_package(GLUT REQUIRED)
 find_package(SDL REQUIRED)
-find_package(CEGUI REQUIRED)
-
-
-if(NOT SDL_FOUND)
-	message( FATAL_ERROR "SDL not found!")
-endif (NOT SDL_FOUND)
-
-if(NOT CEGUI_FOUND)
-	message( FATAL_ERROR "CEGUI not found!")
-endif (NOT CEGUI_FOUND)
+find_package(CEGUI REQUIRED COMPONENTS OpenGL)
+find_package(GLM REQUIRED)
 
 link_libraries(
 	${SDL_LIBRARY}
 	SDLmain
+	${OPENGL_LIBRARIES}
+	${GLUT_LIBRARY}
 	${CEGUI_LIBRARY}
 )
 
 include_directories(
 	${CEGUI_INCLUDE_DIRS}
+	${OPENGL_INCLUDE_DIRS}
+	${GLUT_INCLUDE_DIRS}
+	${GLM_INCLUDE_DIRS}	
 )
 
-add_executable(TerminalCommander WIN32 ${SOURCES})
+add_executable(	
+	TerminalCommander 
+	WIN32 
+	${srcCoding} 
+	${srcGui} 
+	${srcMain} 
+	${srcShip} 
+	${srcUtils}	
+)
