@@ -48,7 +48,7 @@ COMPILING:
     >  cmake ..
     >  make
 	
-    After build is completed, inside your build directory you will find TerminalCommander directory. Inside should be executable and assets directory. From here you can just run TerminalCommander executable.
+    After build is completed, inside your build directory you will find TerminalCommander directory. That's where you can find executable and copy of an assets folder.
 
     Currently there is no install, so don't 'make install'.
 
