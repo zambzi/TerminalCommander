@@ -1,4 +1,18 @@
 <?xml version="1.0" ?>
+
+<!-- 
+	Main GUI layout for Terminal Commander
+	Author: Łukasz Piotrowski
+	Warning:	This software is provided "AS IS", there is no warranty,
+ 	  			that the software will work, and creator is not to be
+ 	  			held liable due to any potential damages that may occur
+ 				due to use of this code.
+ 	Copyright:
+ 	Version: 	0.1
+
+ -->
+
+
 <GUILayout>
     <Window Type="TaharezLook/FrameWindow" Name="backgroundWindow">
         <!--<Property Name="UnifiedAreaRect" Value="{{0.0,0.0},{0.0,0.0},{1.0,0.0},{1.0,0.0}}" />-->

@@ -1,9 +1,16 @@
-/*
- * ShipInterface.cpp
- *
- *  Created on: Nov 25, 2013
- *      Author: zambzi
- */
+/********************************************//**
+ *  \name		ShipInterface
+ *  \brief		Core UI class.
+ *  \details	ShipInterface manages all aspects of interface, along with
+ *  			3 main consoles (Output, Input, Info). Also, most CEGUI setup
+ *  			is done here.
+ *  \author		Łukasz Piotrowski
+ *  \warning	This software is provided "AS IS", there is no warranty,
+ *  			that the software will work, and creator is not to be
+ *  			held liable due to any potential damages that may occur
+ *  			due to use of this code.
+ *  \copyright
+ ***********************************************/
 
 #include "ShipInterface.h"
 

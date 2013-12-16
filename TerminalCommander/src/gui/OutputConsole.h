@@ -1,9 +1,14 @@
-/*
- * OutputConsole.h
- *
- *  Created on: Dec 2, 2013
- *      Author: zambzi
- */
+/********************************************//**
+ *  \name		OutputConsole
+ *  \brief		Implementation of in-game Output Console
+ *  \details
+ *  \author		Łukasz Piotrowski
+ *  \warning	This software is provided "AS IS", there is no warranty,
+ *  			that the software will work, and creator is not to be
+ *  			held liable due to any potential damages that may occur
+ *  			due to use of this code.
+ *  \copyright
+ ***********************************************/
 
 #ifndef OUTPUTCONSOLE_H_
 #define OUTPUTCONSOLE_H_

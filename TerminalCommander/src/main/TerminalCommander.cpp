@@ -1,10 +1,17 @@
-//============================================================================
-// Name        : TerminalCommander.cpp
-// Author      : 
-// Version     :
-// Copyright   : Your copyright notice
-// Description : Hello World in C++, Ansi-style
-//============================================================================
+/********************************************//**
+ *  \name 		TerminalCommander
+ *  \brief 		Main source file for TC.
+ *  \details
+ *  \author		Łukasz Piotrowski
+ *  \version	0.4
+ *  \date		2013
+ *  \bug
+ *  \warning	This software is provided "AS IS", there is no warranty,
+ *  			that the software will work, and creator is not to be
+ *  			held liable due to any potential damages that may occur
+ *  			due to use of this code.
+ *  \copyright
+ ***********************************************/
 #include "stdafx.h"
 #include "TCApp.h"
 

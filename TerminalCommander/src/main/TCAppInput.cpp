@@ -1,3 +1,15 @@
+/********************************************//**
+ *  \name		TCApp
+ *  \brief		TCApp input methods
+ *  \details	All input methods from TCApp are implemented here.
+ *  \author		Łukasz Piotrowski
+ *  \warning	This software is provided "AS IS", there is no warranty,
+ *  			that the software will work, and creator is not to be
+ *  			held liable due to any potential damages that may occur
+ *  			due to use of this code.
+ *  \copyright
+ ***********************************************/
+
 #include "TCApp.h"
 
 void TCApp::event(SDL_Event* evt){

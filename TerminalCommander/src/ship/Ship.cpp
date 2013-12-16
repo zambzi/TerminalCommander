@@ -1,9 +1,14 @@
-/*
- * Ship.cpp
- *
- *  Created on: Dec 3, 2013
- *      Author: zambzi
- */
+/********************************************//**
+ *  \name		Ship
+ *  \brief		Core Ship class
+ *  \details	Controls all the subsystems of player ship and stores core info.
+ *  \author		Łukasz Piotrowski
+ *  \warning	This software is provided "AS IS", there is no warranty,
+ *  			that the software will work, and creator is not to be
+ *  			held liable due to any potential damages that may occur
+ *  			due to use of this code.
+ *  \copyright
+ ***********************************************/
 
 #include "Ship.h"
 

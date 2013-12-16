@@ -1,9 +1,14 @@
-/*
- * Nav.cpp
- *
- *  Created on: Dec 6, 2013
- *      Author: zambzi
- */
+/********************************************//**
+ *  \name		Nav
+ *  \brief		Navigation subsystem implementation
+ *  \details
+ *  \author		Łukasz Piotrowski
+ *  \warning	This software is provided "AS IS", there is no warranty,
+ *  			that the software will work, and creator is not to be
+ *  			held liable due to any potential damages that may occur
+ *  			due to use of this code.
+ *  \copyright
+ ***********************************************/
 
 #include "Nav.h"
 #include <strstream>
@@ -27,7 +32,6 @@ const glm::vec3 Nav::getNav(){
 
 void Nav::saveNav(CEGUI::String name, float x, float y, float z){
 	navMemory[name] = glm::vec3(x,y,z);
-	glm::vec3 test = navMemory[name];
 }
 
 std::map<CEGUI::String, glm::vec3>::iterator Nav::getNavFromMem(CEGUI::String name){

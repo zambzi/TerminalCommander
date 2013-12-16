@@ -1,9 +1,14 @@
-/*
- * Thrusters.h
- *
- *  Created on: Dec 3, 2013
- *      Author: zambzi
- */
+/********************************************//**
+ *  \name		Thrusters
+ *  \brief		Thrusters subsystem implementation
+ *  \details
+ *  \author		Łukasz Piotrowski
+ *  \warning	This software is provided "AS IS", there is no warranty,
+ *  			that the software will work, and creator is not to be
+ *  			held liable due to any potential damages that may occur
+ *  			due to use of this code.
+ *  \copyright
+ ***********************************************/
 
 #ifndef THRUSTERS_H_
 #define THRUSTERS_H_

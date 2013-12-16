@@ -1,9 +1,14 @@
-/*
- * Nav.h
- *
- *  Created on: Dec 6, 2013
- *      Author: zambzi
- */
+/********************************************//**
+ *  \name		Nav
+ *  \brief		Navigation subsystem implementation
+ *  \details
+ *  \author		Łukasz Piotrowski
+ *  \warning	This software is provided "AS IS", there is no warranty,
+ *  			that the software will work, and creator is not to be
+ *  			held liable due to any potential damages that may occur
+ *  			due to use of this code.
+ *  \copyright
+ ***********************************************/
 
 #ifndef NAV_H_
 #define NAV_H_

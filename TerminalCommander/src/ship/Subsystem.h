@@ -1,9 +1,15 @@
-/*
- * Subsystem.h
- *
- *  Created on: Dec 3, 2013
- *      Author: zambzi
- */
+/********************************************//**
+ *  \name		Subsystem
+ *  \brief		Basic common implementation of a ship subsystem.
+ *  \details	Provides most common functionality shared between every
+ *  			ship subsystem, like power and communication.
+ *  \author		Łukasz Piotrowski
+ *  \warning	This software is provided "AS IS", there is no warranty,
+ *  			that the software will work, and creator is not to be
+ *  			held liable due to any potential damages that may occur
+ *  			due to use of this code.
+ *  \copyright
+ ***********************************************/
 
 #ifndef SUBSYSTEM_H_
 #define SUBSYSTEM_H_

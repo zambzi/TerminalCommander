@@ -1,9 +1,16 @@
-/*
- * Programs.cpp
- *
- *  Created on: Dec 4, 2013
- *      Author: zambzi
- */
+/********************************************//**
+ *  \name		Programs
+ *  \brief		Bindings class is used to parse input and bind it
+ *  			to apropriate methods.
+ *  \details	This file consist of definitions of 'program' methods
+ *  			from Bindings class.
+ *  \author		Łukasz Piotrowski
+ *  \warning	This software is provided "AS IS", there is no warranty,
+ *  			that the software will work, and creator is not to be
+ *  			held liable due to any potential damages that may occur
+ *  			due to use of this code.
+ *  \copyright
+ ***********************************************/
 
 #include "Bindings.h"
 #include "../gui/Dialogs.h"

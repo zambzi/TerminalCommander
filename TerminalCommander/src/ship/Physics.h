@@ -1,9 +1,14 @@
-/*
- * Physics.h
- *
- *  Created on: Dec 4, 2013
- *      Author: zambzi
- */
+/********************************************//**
+ *  \name		Physics
+ *  \brief		Simple space physics
+ *  \details
+ *  \author		Łukasz Piotrowski
+ *  \warning	This software is provided "AS IS", there is no warranty,
+ *  			that the software will work, and creator is not to be
+ *  			held liable due to any potential damages that may occur
+ *  			due to use of this code.
+ *  \copyright
+ ***********************************************/
 
 #ifndef PHYSICS_H_
 #define PHYSICS_H_

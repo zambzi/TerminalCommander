@@ -1,9 +1,15 @@
-/*
- * Dialogs.h
- *
- *  Created on: Dec 5, 2013
- *      Author: zambzi
- */
+/********************************************//**
+ *  \name		Dialogs
+ *  \brief		Hardcoded string values for program messages.
+ *  \details	This file will be modified in future to work with xml
+ *  			files instead of hardcoded values
+ *  \author		Łukasz Piotrowski
+ *  \warning	This software is provided "AS IS", there is no warranty,
+ *  			that the software will work, and creator is not to be
+ *  			held liable due to any potential damages that may occur
+ *  			due to use of this code.
+ *  \copyright
+ ***********************************************/
 
 #ifndef DIALOGS_H_
 #define DIALOGS_H_

@@ -1,9 +1,16 @@
-/*
- * TCApp.cpp
- *
- *  Created on: Nov 24, 2013
- *      Author: zambzi
- */
+/********************************************//**
+ *  \name		TCApp
+ *  \brief		Core App class
+ *  \details	Main manager, consisting of main game loop, all SDL and
+ *  			CEGUI initialization, core input setup and opengl setup,
+ *  			as well as rendering.
+ *  \author		Łukasz Piotrowski
+ *  \warning	This software is provided "AS IS", there is no warranty,
+ *  			that the software will work, and creator is not to be
+ *  			held liable due to any potential damages that may occur
+ *  			due to use of this code.
+ *  \copyright
+ ***********************************************/
 
 #include "TCApp.h"
 
